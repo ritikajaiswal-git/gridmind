@@ -1,0 +1,25 @@
+# GridMind Configuration Settings
+
+location:
+  city: "Jaipur"
+  lat: 26.9124
+  lon: 75.7873
+
+battery:
+  capacity_kwh: 100.0      # Total energy battery can store
+  max_power_kw: 50.0       # Max speed it can charge or discharge
+  min_soc_percent: 20.0    # Never drain below 20%
+  max_soc_percent: 95.0    # Never charge above 95%
+  efficiency: 0.90         # 10% energy is lost as heat 
+
+grid:
+  nominal_frequency_hz: 50.0
+  peak_hours: ["18:00", "22:00"] # Shaam 6 baje se 10 baje tak
+  # Source: Central Electricity Authority (CEA) India, CO2 Baseline Database
+  carbon_intensity_kg_per_kwh: 0.71 
+
+solar:
+  capacity_kw: 150.0       # Max power our solar plant can produce
+
+simulation:
+  num_buildings: 4         # Hospital, Apartments, Office, School

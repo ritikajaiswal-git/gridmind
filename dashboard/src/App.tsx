@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/telemetry')
+        const response = await axios.get('https://dashboard.render.com/web/srv-db0hp18u01pc73aecr9g/deploys/dep-db0hv5navr4c73fq7pe0?r=2026-10-03%4015%3A29%3A30%7E2026-10-03%4015%3A33%3A26/telemetry')
         setCurrentData(response.data)
         setAiEnabled(response.data.ai_enabled) // Server se sync
         
@@ -23,7 +23,7 @@ function App() {
           return newHistory
         })
 
-        const ledgerRes = await axios.get('http://localhost:8000/ledger')
+        const ledgerRes = await axios.get('https://dashboard.render.com/web/srv-db0hp18u01pc73aecr9g/deploys/dep-db0hv5navr4c73fq7pe0?r=2026-10-03%4015%3A29%3A30%7E2026-10-03%4015%3A33%3A26/ledger')
         setLedger(ledgerRes.data)
       } catch (error) {
         console.error("API Error", error)
@@ -39,7 +39,7 @@ function App() {
     const newState = !aiEnabled
     setAiEnabled(newState)
     try {
-      await axios.post('http://localhost:8000/toggle-ai', { ai_enabled: newState })
+      await axios.post('https://dashboard.render.com/web/srv-db0hp18u01pc73aecr9g/deploys/dep-db0hv5navr4c73fq7pe0?r=2026-10-03%4015%3A29%3A30%7E2026-10-03%4015%3A33%3A26/toggle-ai', { ai_enabled: newState })
     } catch (error) {
       console.error("Toggle Failed", error)
     }
